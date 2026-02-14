@@ -15,11 +15,39 @@ def main():
 
     # TODO Align all species to humans and print species in order of most similar to human BRD
     # using gap opening penalty of -10 and a gap extension penalty of -1 and BLOSUM62 matrix
-    pass
+    aligner = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat", -10, -1) # create aligner
+    
+    # store species names and alignment scores
+    species_scores = []
+    
+    # align each species to human
+    gg_score, _, _ = aligner.align(hs_seq, gg_seq)
+    species_scores.append(("Gallus gallus", gg_score))
+    
+    mm_score, _, _ = aligner.align(hs_seq, mm_seq)
+    species_scores.append(("Mus musculus", mm_score))
+    
+    br_score, _, _ = aligner.align(hs_seq, br_seq)
+    species_scores.append(("Balaeniceps rex", br_score))
+    
+    tt_score, _, _ = aligner.align(hs_seq, tt_seq)
+    species_scores.append(("Tursiops truncatus", tt_score))
+    
+    # in order of most similar to human BRD - as instructed above
+    species_scores.sort(key=lambda x: x[1], reverse=True)
+    
+    # print results in order of similarity
+    print("Species ordered by similarity to Homo sapiens BRD2:")
+    for species, score in species_scores:
+        print(f"{species}: {score}")
 
     # TODO print all of the alignment score between each species BRD2 and human BRD2
     # using gap opening penalty of -10 and a gap extension penalty of -1 and BLOSUM62 matrix
-    pass
+    print("\nAlignment scores for each species with Homo sapiens BRD2:")
+    print(f"Gallus gallus: {gg_score}")
+    print(f"Mus musculus: {mm_score}")
+    print(f"Balaeniceps rex: {br_score}")
+    print(f"Tursiops truncatus: {tt_score}")
     
 
 if __name__ == "__main__":
