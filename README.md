@@ -1,5 +1,22 @@
+[![tests](https://github.com/ofaye98/HW5-NW/actions/workflows/tests.yml/badge.svg)](https://github.com/ofaye98/HW5-NW/actions/workflows/tests.yml)
 # Project 5
 Needleman Wunsch Algorithm
+
+# Description of Methods
+For general understanding of the algorithm I referenced these websites (and the class powerpoint, and my class notes):
+* https://medium.com/@nandiniumbarkar/needleman-wunsch-algorithm-7bba68b510db
+* https://www.youtube.com/watch?v=b6xBvl0yPAY
+
+For align.py align() method I used these websites:
+* https://wilkelab.org/classes/SDS348/2019_spring/labs/lab13-solution.html - I used the needleman_wunsch method in this website to understand how to fill out the first row and column of the score matrix. I also used their method to fill out the _backtrace() method
+* https://stackoverflow.com/questions/63120727/needleman-wunsch-algorithm-for-two-sequences-of-different-length - I used the code discussed in this page for filling out rest of the score matrix
+* https://github.com/scastlara/minineedle/blob/master/minineedle/core.py - Minineedle python package has implemented Needleman Wunsch algorithm in their alignment method
+
+For main.py I looked at the align class and each method's input variables. I also used VS code suggestions.
+
+For test cases in test_nw_alignment I used chatgpt's suggestions.
+
+For test cases in test_nw_backtrace I used the note under the Unit Tests section in the README file.
 
 
 # Assignment Overview
